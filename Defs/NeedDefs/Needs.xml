@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Energy need for CompSolarPowered -->
+	<NeedDef>
+		<defName>HoloFauna_Energy</defName>
+		<needClass>HoloFauna.Need_Energy</needClass>
+		<label>energy</label>
+		<description>Energy is the amount of electrical energy stored by a machine. If it is at zero, the machine will cease to function.</description>
+		<showOnNeedList>false</showOnNeedList>
+		<major>true</major>
+		<listPriority>1000</listPriority>
+		<showForCaravanMembers>true</showForCaravanMembers>
+	</NeedDef>
+
+</Defs>

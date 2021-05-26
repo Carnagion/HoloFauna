@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Mod display name -->
+	<HoloFaunaModName>Holo Fauna</HoloFaunaModName>
+
+	<!-- Mod settings -->
+	<RestartRequiredLabel>Note: A restart is required for settings to take effect.</RestartRequiredLabel>
+	
+	<HoloAnimalColourSettingLabel>Colour of holographic animals</HoloAnimalColourSettingLabel>
+	<HoloAnimalColourSettingTooltip>The colour of all holo animals. Values are in RGB format, ranging from (0, 0, 0) to (255, 255, 255). Default = (108, 218, 244).</HoloAnimalColourSettingTooltip>
+	<CurrentColourLabel>Current colour: </CurrentColourLabel>
+
+</LanguageData>

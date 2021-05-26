@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+	<name>Holo Fauna</name>
+	<author>Carnagion</author>
+	<packageId>Carnagion.HoloFauna</packageId>
+	<supportedVersions>
+		<li>1.2</li>
+	</supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadBefore/>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+	</loadAfter>
+	<incompatibleWith/>
+	<description>If you want cool-looking pets that require no food or sleep, are nearly invincible, and also look cool, then this mod is for you. Holo Fauna adds holographic counterparts of every single animal in the game, because why not?
+
+	FEATURES
+
+A new research project enables the crafting of a holographic life core at fabrication benches. These are single-use artifacts that transform into a random holographic animal when activated. The newly spawned holographic animal will automatically be assigned to the activator's faction, and will be trained in Tameness and Obedience.
+
+Holographic animals are better than regular animals in almost every way since they do not need to eat or sleep, and aren't affected by processes such as aging or diseases. They only need sufficient light, as they produce energy through in-built solar generators. Combined with their high nuzzling frequency, this makes them the ideal pets, although they can't be trained to attack, haul, or rescue.
+
+But not only are they great pets, they're also useful on the battlefield. Due to the lack of a tangible, physical body, they can't be damaged by any sort of weapon, projectile, or psycast. Of course, this also means they can't do any damage to other things, but enemies will still continue to attack them if they are nearby, because enemies in RimWorld are dumb. While they are nearly invincible, holographic animals will instantly cease to function (aka "die") if hit by EMP.
+
+The colour of holographic animals can be changed 
+
+	MOD SUPPORT
+
+A holographic animal counterpart will automatically be generated for all animals added by all active mods.
+
+Additionally, some features are activated if these mods are loaded:
+
+	- Vanilla Expaded Framework
+	Holographic animals will gain the "Floating" comp, which allows them to ignore pathing costs for terrain and obstacles like rocks, plants, etc.
+
+	- Vanilla Furniture Expanded - Art
+	The holographic life core will require the "Holograms" research from VFE - Art rather than the default one added by this mod, which will be removed. This is to allow all hologram-related things to be accessible from a single research project.
+
+New damage types added by other mods are also supported, and will not harm holo animals by default.
+
+	FAQ
+
+1. Are the holographic animals different from each other apart from graphics?
+A.  Most holographic animals have the same stats, except for movement speed, body size, market value, and the amount of energy they consume/replenish per tick.
+
+2. A mod adds an animal but a holographic counterpart for it was not generated. Why?
+A. This means that animal isn't being counted as an animal by RimWorld. It is possible to manually add holographic animals. See documentation.
+
+3. I want to add a new holographic animal/change the stats of an already existing holographic animal. How do I do this?
+A. See documentation.
+
+4. I want to remove a certain holographic animal. How do I do this?
+A. See documentation.
+
+5. I want to make holographic animals die to a certain damage type. How do I do this?
+A. See documentation.
+
+6. I changed the colour of holographic animals in the settings, but some of them still have a different colour. Why?
+A. Thsese animals are probably added through xml, which tells HoloFauna to ignore them when applying settings and mod integrations. See documentation for details on how to change this.
+
+7. Is this mod compatible with any other mods that change animal mechanics or add new animals?
+A. Yes, there shouldn't be any compatibility problems.
+
+8. Is it safe to add to an ongoing save?
+A. Yes, absolutely. However, it is good practice to make a backup of the save file before adding it, just in case something unexpectedly goes wrong.
+
+9. Is it safe to remove from ongoing saves?
+A. Yes, absolutely. Just remove all holographic animals and items added by this mod before doing so. Also, be sure to make a backup of the save file, just in case something unexpectedly goes wrong.
+
+	CREDITS
+
+Thanks to Brrainz for making Harmony. It's so good that I can't stop using it. Please send help.
+
+RimWorld is owned by Tynan Sylvester.
+	</description>
+</ModMetaData>
+
+<!-- TO FIX
+- Training/taming gives errors : can be ignored
+- Capacities shown as flesh capacities : UI code is shit, not worth the effort
+-->

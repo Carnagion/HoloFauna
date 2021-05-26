@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Holo animal description generation -->
+	<HoloAnimalDescription>A life-sized holographic replica of a {0}, produced by a tiny levitating core. Unlike its living counterpart, most physical objects simply pass through it, and it is solar-powered, not requiring any food or rest. Basic AI housed in the core allows it to move and behave like a live animal, making it popular as pets among the upper class and effective distractions on the battlefield. \n\nDue to its core's small size and delicate components, it will stop functioning immediately if hit by EMP.</HoloAnimalDescription>
+
+</LanguageData>

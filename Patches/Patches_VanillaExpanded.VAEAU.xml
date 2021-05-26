@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Animals Expanded — Australia</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<!-- Adds holo boombat -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- Holo boombat -->
+						<ThingDef ParentName="BaseHoloAnimalThing">
+							<defName>HoloFauna_HoloAEXP_Boombat</defName>
+							<label>holo boombat</label>
+							<description>A life-sized holographic replica of a boombat, produced by a tiny levitating core. Unlike its living counterpart, most physical objects simply pass through it, and it is solar-powered, not requiring any food or rest. Basic AI housed in the core allows it to move and behave like a live animal, making it popular as pets among the upper class. Similar to regular boombats, the holo boombat produces a small EMP burst upon death, making it a highly effective distraction against mechanoids.\n\nDue to its core's small size and delicate components, it will stop functioning immediately if hit by EMP.</description>
+							<statBases>
+								<MoveSpeed>4.0</MoveSpeed>
+								<MarketValue>2920</MarketValue>
+							</statBases>
+							<comps>
+								<li Class="HoloFauna.CompProperties_SolarPowered">
+									<hoursForFullRecharge>2.48</hoursForFullRecharge>
+									<hoursSurvivableWithoutLight>111</hoursSurvivableWithoutLight>
+									<minimumLightLevel>0.5</minimumLightLevel>
+								</li>
+							</comps>
+							<race>
+								<body>HoloFauna_HoloAnimal</body>
+								<deathActionWorkerClass>HoloFauna.DeathActionWorker_SmallEmpExplosion</deathActionWorkerClass>
+								<executionRange>4</executionRange>
+								<baseBodySize>0.4</baseBodySize>
+								<baseHealthScale>0.65</baseHealthScale>
+								<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+					      		<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+					      		<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+					      		<lifeStageAges>
+					      			<li>
+					      				<def>HoloFauna_HoloAnimalAdult</def>
+					      				<minAge>0.00</minAge>
+					      				<soundWounded>Pawn_Boomrat_Wounded</soundWounded>
+					      				<soundDeath>Pawn_Boomrat_Death</soundDeath>
+					      				<soundCall>Pawn_Boomrat_Call</soundCall>
+					      				<soundAngry>Pawn_Boomrat_Angry</soundAngry>
+					      			</li>
+					      		</lifeStageAges>
+					      	</race>
+					  	</ThingDef>
+
+					  	<PawnKindDef ParentName="BaseHoloAnimalKind">
+					  		<defName>HoloFauna_HoloAEXP_Boombat</defName>
+					  		<label>holo boombat</label>
+					  		<race>HoloFauna_HoloAEXP_Boombat</race>
+					  		<lifeStages>
+					  			<li>
+					  				<bodyGraphicData>
+					          			<texPath>Things/Pawn/Animal/AEXP_Boombat/AEXP_Boombat</texPath>
+					          			<drawSize>1.5</drawSize>
+					          			<color>(108,218,244)</color>
+					          			<shaderType>EdgeDetect</shaderType>
+					          			<shadowData>
+					            			<volume>(0.25, 0.3, 0.25)</volume>
+					            			<offset>(0,0,0)</offset>
+					          			</shadowData>
+					        		</bodyGraphicData>
+					        	</li>
+					        </lifeStages>
+					    </PawnKindDef>
+					</value>
+				</li>
+
+				<!-- Adds holo boombat to list of spawnable creatures for holographic life core -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HoloFauna_HolographicLifeCore"]/comps/li[@Class="HoloFauna.CompProperties_UseEffectSpawnCreature"]/creatures</xpath>
+					<value>
+						<li>HoloFauna_HoloAEXP_Boombat</li>
+					</value>
+				</li>
+
+			</operations>
+		</match>
+
+	</Operation>
+
+</Patch>

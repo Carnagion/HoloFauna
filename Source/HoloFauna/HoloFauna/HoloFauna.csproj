@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{199AA40C-5588-4972-A757-4115F0E089AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HoloFauna</RootNamespace>
+    <AssemblyName>HoloFauna</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\Harmony\net472\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BodyDefOf.cs" />
+    <Compile Include="Patches_Pawn_MeleeVerbs.cs" />
+    <Compile Include="RecipeDefOf.cs" />
+    <Compile Include="DeathActionWorker_SmallEmpExplosion.cs" />
+    <Compile Include="DeathActionWorker_BigEmpExplosion.cs" />
+    <Compile Include="SoundDefOf.cs" />
+    <Compile Include="HoloFaunaModSettings.cs" />
+    <Compile Include="ThingDefOf.cs" />
+    <Compile Include="Patches_ThingDefGenerator_Meat.cs" />
+    <Compile Include="HoloFaunaMod.cs" />
+    <Compile Include="HarmonyPatches.cs" />
+    <Compile Include="LifeStageDefOf.cs" />
+    <Compile Include="ThingDefGenerator_Holo.cs" />
+    <Compile Include="Need_Energy.cs" />
+    <Compile Include="CompSolarPowered.cs" />
+    <Compile Include="CompProperties_SolarPowered.cs" />
+    <Compile Include="CompAlwaysTrained.cs" />
+    <Compile Include="CompProperties_AlwaysTrained.cs" />
+    <Compile Include="CompUseEffect_SpawnCreature.cs" />
+    <Compile Include="CompProperties_UseEffectSpawnCreature.cs" />
+    <Compile Include="CompProperties_CannotExist.cs" />
+    <Compile Include="Patches_ThingDefGenerator_Corpses.cs" />
+    <Compile Include="CompCannotExist.cs" />
+    <Compile Include="CompInvulnerable.cs" />
+    <Compile Include="CompProperties_Invulnerable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

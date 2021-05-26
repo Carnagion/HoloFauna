@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Base holo pawn ThingDef -->
+	<ThingDef Name="BaseHoloPawnThing" Abstract="True">
+		<thingClass>Pawn</thingClass>
+		<category>Pawn</category>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Pawn</altitudeLayer>
+		<useHitPoints>false</useHitPoints>
+		<hasTooltip>true</hasTooltip>
+		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+		<statBases>
+			<Mass>2.00</Mass>
+			<Flammability>0.00</Flammability>
+			<MeatAmount>0</MeatAmount>
+			<LeatherAmount>0</LeatherAmount>
+			<ToxicSensitivity>0</ToxicSensitivity>
+			<PsychicSensitivity>0</PsychicSensitivity>
+			<ComfyTemperatureMin>-100</ComfyTemperatureMin>
+			<ComfyTemperatureMax>250</ComfyTemperatureMax>
+			<ArmorRating_Sharp>0.00</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.00</ArmorRating_Blunt>
+			<ArmorRating_Heat>0.00</ArmorRating_Heat>
+		</statBases>
+		<race>
+			<needsRest>false</needsRest>
+			<foodType>None</foodType>
+			<baseHungerRate>0.00</baseHungerRate>
+			<lifeExpectancy>2500</lifeExpectancy>
+			<makesFootprints>false</makesFootprints>
+			<hasGenders>true</hasGenders>
+			<canBePredatorPrey>false</canBePredatorPrey>
+		</race>
+		<comps>
+			<li>
+				<compClass>CompAttachBase</compClass>
+			</li>
+			<li Class="HoloFauna.CompProperties_Invulnerable">
+				<damageDefsToAllow>
+					<li>Stun</li>
+					<li>SurgicalCut</li>
+					<li>ExecutionCut</li>
+				</damageDefsToAllow>
+				<damageDefsThatKill>
+					<li>EMP</li>
+				</damageDefsThatKill>
+				<removeBadHediffs>true</removeBadHediffs>
+			</li>
+		</comps>
+		<inspectorTabs>
+		  	<li>ITab_Pawn_Health</li>
+		  	<li>ITab_Pawn_Needs</li>
+		  	<li>ITab_Pawn_Character</li>
+		  	<li>ITab_Pawn_Training</li>
+		  	<li>ITab_Pawn_Social</li>
+		  	<li>ITab_Pawn_Guest</li>
+		  	<li>ITab_Pawn_Prisoner</li>
+		  	<li>ITab_Pawn_FormingCaravan</li>
+		  	<li>ITab_Pawn_Gear</li>
+		  	<li>ITab_Pawn_Log</li>
+		</inspectorTabs>
+		<recipes>
+			<li>Anesthetize</li>
+			<li>Euthanize</li>
+			<li>RemoveBodyPart</li>
+		</recipes>
+	</ThingDef>
+
+	<!-- Base holo animal ThingDef -->
+	<ThingDef ParentName="BaseHoloPawnThing" Name="BaseHoloAnimalThing" Abstract="True">
+		<race>
+			<thinkTreeMain>Animal</thinkTreeMain>
+			<thinkTreeConstant>AnimalConstant</thinkTreeConstant>
+			<manhunterOnDamageChance>0.00</manhunterOnDamageChance>
+			<manhunterOnTameFailChance>0.00</manhunterOnTameFailChance>
+			<nameOnNuzzleChance>1.00</nameOnNuzzleChance>
+			<trainability>Simple</trainability>
+			<wildness>0.00</wildness>
+			<nuzzleMtbHours>8</nuzzleMtbHours>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+			<herdAnimal>false</herdAnimal>
+		</race>
+		<comps>
+			<li Class="HoloFauna.CompProperties_AlwaysTrained">
+				<trainableDefs>
+					<li>Tameness</li>
+					<li>Obedience</li>
+				</trainableDefs>
+			</li>
+		</comps>
+		<tradeTags>
+			<li>AnimalExotic</li>
+			<li>AnimalFighter</li>
+		</tradeTags>
+	</ThingDef>
+
+	<!-- Base holo animal PawnKindDef -->
+	<PawnKindDef Name="BaseHoloAnimalKind" Abstract="True">
+		<combatPower>100</combatPower>
+		<canArriveManhunter>false</canArriveManhunter>
+		<ecoSystemWeight>1.00</ecoSystemWeight>
+	</PawnKindDef>
+
+	<!-- Holo boomalope -->
+	<ThingDef ParentName="BaseHoloAnimalThing">
+		<defName>HoloFauna_HoloBoomalope</defName>
+		<label>holo boomalope</label>
+		<description>A life-sized holographic replica of a boomalope, produced by a tiny levitating core. Unlike its living counterpart, most physical objects simply pass through it, and it is solar-powered, not requiring any food or rest. Basic AI housed in the core allows it to move and behave like a live animal, making it popular as pets among the upper class. Similar to regular boomalopes, the holo boomalope produces a large EMP burst upon death, making it a highly effective distraction against mechanoids.\n\nDue to its core's small size and delicate components, it will stop functioning immediately if hit by EMP.</description>
+		<statBases>
+			<MoveSpeed>3.4</MoveSpeed>
+			<MarketValue>2080</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="HoloFauna.CompProperties_SolarPowered">
+				<hoursForFullRecharge>9.3</hoursForFullRecharge>
+				<hoursSurvivableWithoutLight>111</hoursSurvivableWithoutLight>
+				<minimumLightLevel>0.5</minimumLightLevel>
+			</li>
+		</comps>
+		<race>
+			<body>HoloFauna_HoloAnimal</body>
+			<deathActionWorkerClass>HoloFauna.DeathActionWorker_BigEmpExplosion</deathActionWorkerClass>
+			<executionRange>6</executionRange>
+			<baseBodySize>1.5</baseBodySize>
+			<baseHealthScale>0.65</baseHealthScale>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+			<lifeStageAges>
+				<li>
+					<def>HoloFauna_HoloAnimalAdult</def>
+					<minAge>0.00</minAge>
+					<soundCall>Pawn_Muffalo_Call</soundCall>
+					<soundAngry>Pawn_Muffalo_Angry</soundAngry>
+					<soundWounded>Pawn_Muffalo_Wounded</soundWounded>
+					<soundDeath>Pawn_Muffalo_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+		</race>
+	</ThingDef>
+
+	<PawnKindDef ParentName="BaseHoloAnimalKind">
+		<defName>HoloFauna_HoloBoomalope</defName>
+		<label>holo boomalope</label>
+		<race>HoloFauna_HoloBoomalope</race>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>Things/Pawn/Animal/Boomalope/Boomalope</texPath>
+					<drawSize>2.0</drawSize>
+					<color>(108,218,244)</color>
+					<shaderType>EdgeDetect</shaderType>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+	<!-- Holo boomrat -->
+	<ThingDef ParentName="BaseHoloAnimalThing">
+		<defName>HoloFauna_HoloBoomrat</defName>
+		<label>holo boomrat</label>
+		<description>A life-sized holographic replica of a boomrat, produced by a tiny levitating core. Unlike its living counterpart, most physical objects simply pass through it, and it is solar-powered, not requiring any food or rest. Basic AI housed in the core allows it to move and behave like a live animal, making it popular as pets among the upper class. Similar to regular boomrats, the holo boomrat produces a small EMP burst upon death, making it a highly effective distraction against mechanoids.\n\nDue to its core's small size and delicate components, it will stop functioning immediately if hit by EMP.</description>
+		<statBases>
+			<MoveSpeed>4.6</MoveSpeed>
+			<MarketValue>2880</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="HoloFauna.CompProperties_SolarPowered">
+				<hoursForFullRecharge>1.24</hoursForFullRecharge>
+				<hoursSurvivableWithoutLight>180</hoursSurvivableWithoutLight>
+				<minimumLightLevel>0.5</minimumLightLevel>
+			</li>
+		</comps>
+		<race>
+			<body>HoloFauna_HoloAnimal</body>
+			<deathActionWorkerClass>HoloFauna.DeathActionWorker_SmallEmpExplosion</deathActionWorkerClass>
+			<executionRange>4</executionRange>
+			<baseBodySize>0.2</baseBodySize>
+			<baseHealthScale>0.4</baseHealthScale>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+      		<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+      		<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+      		<lifeStageAges>
+      			<li>
+      				<def>HoloFauna_HoloAnimalAdult</def>
+      				<minAge>0.00</minAge>
+      				<soundWounded>Pawn_Boomrat_Wounded</soundWounded>
+      				<soundDeath>Pawn_Boomrat_Death</soundDeath>
+      				<soundCall>Pawn_Boomrat_Call</soundCall>
+      				<soundAngry>Pawn_Boomrat_Angry</soundAngry>
+      			</li>
+      		</lifeStageAges>
+      	</race>
+  	</ThingDef>
+
+  	<PawnKindDef ParentName="BaseHoloAnimalKind">
+  		<defName>HoloFauna_HoloBoomrat</defName>
+  		<label>holo boomrat</label>
+  		<race>HoloFauna_HoloBoomrat</race>
+  		<lifeStages>
+  			<li>
+  				<bodyGraphicData>
+          			<texPath>Things/Pawn/Animal/Boomrat/Boomrat</texPath>
+          			<drawSize>1.15</drawSize>
+          			<color>(108,218,244)</color>
+          			<shaderType>EdgeDetect</shaderType>
+          			<shadowData>
+            			<volume>(0.25, 0.3, 0.25)</volume>
+            			<offset>(0,0,0)</offset>
+          			</shadowData>
+        		</bodyGraphicData>
+        	</li>
+        </lifeStages>
+    </PawnKindDef>
+
+</Defs>

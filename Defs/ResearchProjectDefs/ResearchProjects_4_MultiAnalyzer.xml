@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Research project to build holographic life cores -->
+	<ResearchProjectDef>
+		<defName>HoloFauna_Holograms</defName>
+		<label>holograms</label>
+		<description>Build holographic life cores that produce stunningly detailed replicas of various creatures.</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<prerequisites>
+			<li>Fabrication</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchViewX>15.00</researchViewX>
+		<researchViewY>2.20</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>
