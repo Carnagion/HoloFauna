@@ -57,9 +57,9 @@ namespace HoloFauna
         /// <summary>
         /// periodically checks for bad hediffs and removes them
         /// </summary>
-        public override void CompTickLong()
+        public override void CompTickRare()
         {
-            base.CompTickLong();
+            base.CompTickRare();
             Pawn pawn = this.parent as Pawn;
             if (pawn.health != null && pawn.health.hediffSet != null)
             {
