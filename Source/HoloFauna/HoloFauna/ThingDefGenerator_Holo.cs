@@ -252,7 +252,8 @@ namespace HoloFauna
                         {
                             DamageDefOf.EMP
                         },
-                        removeBadHediffs = true
+                        removeBadHediffs = true,
+                        removePermanentHediffs = true
                     }
                 },
                 inspectorTabs = new List<Type>
