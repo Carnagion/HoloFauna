@@ -17,5 +17,6 @@ namespace HoloFauna
         public List<DamageDef> damageDefsToAllow;
         public List<DamageDef> damageDefsThatKill;
         public bool removeBadHediffs = true;
+        public bool removePermanentHediffs = true;
     }
 }
