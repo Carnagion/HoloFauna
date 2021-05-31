@@ -47,6 +47,7 @@
 					<li>EMP</li>
 				</damageDefsThatKill>
 				<removeBadHediffs>true</removeBadHediffs>
+				<removePermanentHediffs>true</removePermanentHediffs>
 			</li>
 		</comps>
 		<inspectorTabs>
