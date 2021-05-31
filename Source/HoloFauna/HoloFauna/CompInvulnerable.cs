@@ -60,17 +60,19 @@ namespace HoloFauna
         public override void CompTickLong()
         {
             base.CompTickLong();
-            if (this.Props.removeBadHediffs)
+            Pawn pawn = this.parent as Pawn;
+            if (pawn.health != null && pawn.health.hediffSet != null)
             {
-                Pawn pawn = this.parent as Pawn;
-                if (pawn.health.HasHediffsNeedingTend())
+                foreach (Hediff currentHediff in pawn.health.hediffSet.GetHediffs<Hediff>())
                 {
-                    foreach (Hediff currentHediff in pawn.health.hediffSet.GetHediffs<Hediff>())
+                    if (this.Props.removeBadHediffs && currentHediff.def.isBad)
                     {
-                        if (currentHediff.def.isBad)
-                        {
-                            pawn.health.RemoveHediff(currentHediff);
-                        }
+                        pawn.health.RemoveHediff(currentHediff);
+                        continue;
+                    }
+                    if (this.Props.removePermanentHediffs && currentHediff.IsPermanent())
+                    {
+                        pawn.health.RemoveHediff(currentHediff);
                     }
                 }
             }
