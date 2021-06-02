@@ -5,10 +5,13 @@
 	<HoloFaunaModName>Holo Fauna</HoloFaunaModName>
 
 	<!-- Mod settings -->
-	<RestartRequiredLabel>Note: A restart is required for settings to take effect.</RestartRequiredLabel>
+	<RestartRequiredLabel>&lt;color=#6CDAF4&gt;&lt;b&gt;Note:&lt;/b&gt; A restart is required for settings to take effect.&lt;/color&gt;</RestartRequiredLabel>
 	
 	<HoloAnimalColourSettingLabel>Colour of holographic animals</HoloAnimalColourSettingLabel>
 	<HoloAnimalColourSettingTooltip>The colour of all holo animals. Values are in RGB format, ranging from (0, 0, 0) to (255, 255, 255). Default = (108, 218, 244).</HoloAnimalColourSettingTooltip>
 	<CurrentColourLabel>Current colour: </CurrentColourLabel>
+
+	<ModSettingsApplyToCustomSettingLabel>Mod settings apply to custom holographic animals</ModSettingsApplyToCustomSettingLabel>
+	<ModSettingsApplyToCustomSettingTooltip>Toggle whether mod settings such as colour are applied to holographic animals that are not automatically generated. Default = false.</ModSettingsApplyToCustomSettingTooltip>
 
 </LanguageData>
