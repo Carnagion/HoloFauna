@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BodyDefOf.cs" />
+    <Compile Include="HediffDefOf.cs" />
     <Compile Include="Patches_GiddyUpCore_Utilities_IsMountableUtility.cs" />
     <Compile Include="Patches_Pawn_MeleeVerbs.cs" />
     <Compile Include="RecipeDefOf.cs" />

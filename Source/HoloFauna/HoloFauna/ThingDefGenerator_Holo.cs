@@ -26,6 +26,7 @@ namespace HoloFauna
             }
             foreach (PawnKindDef currentKindDef in ImpliedHoloAnimalKindDefs())
             {
+                ApplyModSettings(currentKindDef);
                 holoKindDefsGenerated.Add(currentKindDef);
                 DefGenerator.AddImpliedDef<PawnKindDef>(currentKindDef);
             }
@@ -44,6 +45,11 @@ namespace HoloFauna
                 if (currentKindDef.defName.Contains("HoloFauna_Holo"))
                 {
                     existingHoloDefs.Add(currentKindDef.defName);
+                    //applies mod settings to existing custom holo animals if allowed
+                    if (HoloFaunaMod.modSettings.modSettingsAppliesToCustomHolos)
+                    {
+                        ApplyModSettings(currentKindDef);
+                    }
                 }
             }
             foreach (PawnKindDef currentKindDef in DefDatabase<PawnKindDef>.AllDefs.ToList<PawnKindDef>())
@@ -139,7 +145,7 @@ namespace HoloFauna
                         {
                             texPath = latestLifeStage.bodyGraphicData.texPath,
                             drawSize = latestLifeStage.bodyGraphicData.drawSize,
-                            color = new UnityEngine.Color(HoloFaunaMod.modSettings.holoFaunaColourRed, HoloFaunaMod.modSettings.holoFaunaColourGreen, HoloFaunaMod.modSettings.holoFaunaColourBlue), //(108, 218, 244) or (0.424, 0.855, 0.957) by default
+                            color = new UnityEngine.Color(0.424f, 0.855f, 0.957f), //(108, 218, 244) by default
                             shaderType = ShaderTypeDefOf.EdgeDetect,
                             shadowData = latestLifeStage.bodyGraphicData.shadowData
                         }
@@ -371,6 +377,17 @@ namespace HoloFauna
                 {
                     holoThingDef.comps.Add(compPropertiesFloating);
                 }
+            }
+        }
+
+        /// <summary>
+        /// applies mod settings to the given PawnKindDef
+        /// </summary>
+        public static void ApplyModSettings(PawnKindDef holokindDef)
+        {
+            foreach (PawnKindLifeStage lifeStage in holokindDef.lifeStages)
+            {
+                lifeStage.bodyGraphicData.color = new UnityEngine.Color(HoloFaunaMod.modSettings.holoFaunaColourRed, HoloFaunaMod.modSettings.holoFaunaColourGreen, HoloFaunaMod.modSettings.holoFaunaColourBlue);
             }
         }
 

@@ -29,12 +29,14 @@ namespace HoloFauna
             Listing_Standard settingsWindow = new Listing_Standard();
             settingsWindow.Begin(inRect);
             settingsWindow.Label("RestartRequiredLabel".Translate(), -1, null);
-            settingsWindow.Gap(24f);
+            settingsWindow.GapLine(24f);
             settingsWindow.Label("HoloAnimalColourSettingLabel".Translate(), -1, "HoloAnimalColourSettingTooltip".Translate());
             modSettings.holoFaunaColourRed = settingsWindow.Slider(modSettings.holoFaunaColourRed, 0.00f, 1.00f);
             modSettings.holoFaunaColourGreen = settingsWindow.Slider(modSettings.holoFaunaColourGreen, 0.00f, 1.00f);
             modSettings.holoFaunaColourBlue = settingsWindow.Slider(modSettings.holoFaunaColourBlue, 0.00f, 1.00f);
             settingsWindow.Label("CurrentColourLabel".Translate() + "(" + (int)(modSettings.holoFaunaColourRed * 255) + ", " + (int)(modSettings.holoFaunaColourGreen * 255) + ", " + (int)(modSettings.holoFaunaColourBlue * 255) + ")", -1, null);
+            settingsWindow.GapLine(24f);
+            settingsWindow.CheckboxLabeled("ModSettingsApplyToCustomSettingLabel".Translate(), ref modSettings.modSettingsAppliesToCustomHolos, "ModSettingsApplyToCustomSettingTooltip".Translate());
             settingsWindow.End();
             base.DoSettingsWindowContents(inRect);
         }

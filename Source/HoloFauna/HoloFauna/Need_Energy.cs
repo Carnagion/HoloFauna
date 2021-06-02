@@ -112,11 +112,30 @@ namespace HoloFauna
                 else
                 {
                     this.CurLevel -= (restRate / (this.CompSolarPowered.Props.hoursSurvivableWithoutLight * 2500f)) * 150f;
-                    if (this.CurLevel == 0f)
-                    {
-                        this.pawn.Kill(null, null);
-                    }
                 }
+                this.ConserveEnergy();
+            }
+        }
+
+        /// <summary>
+        /// applies and removes low energy mode as needed
+        /// </summary>
+        public void ConserveEnergy()
+        {
+            Hediff lowEnergy = this.pawn.health?.hediffSet?.GetFirstHediffOfDef(HediffDefOf.HoloFauna_LowEnergyMode);
+            if (lowEnergy != null)
+            {
+                if (this.CurLevel > this.threshPercents[0])
+                {
+                    this.pawn.health.RemoveHediff(lowEnergy);
+                    return;
+                }
+                lowEnergy.Severity = 1f - (5f * this.CurLevel);
+            }
+            else if (this.CurLevel <= this.threshPercents[0])
+            {
+                lowEnergy = HediffMaker.MakeHediff(HediffDefOf.HoloFauna_LowEnergyMode, this.pawn, null);
+                this.pawn.health?.AddHediff(lowEnergy);
             }
         }
 
