@@ -52,7 +52,7 @@ namespace HoloFauna
                     }
                 }
             }
-            foreach (PawnKindDef currentKindDef in DefDatabase<PawnKindDef>.AllDefs.ToList<PawnKindDef>())
+            foreach (PawnKindDef currentKindDef in DefDatabase<PawnKindDef>.AllDefs.ToList<PawnKindDef>().OrderBy(pawnKindDef => pawnKindDef.defName))
             {
                 if (currentKindDef.RaceProps.Animal && !currentKindDef.defName.Contains("HoloFauna_Holo") && !existingHoloDefs.Contains("HoloFauna_Holo" + currentKindDef.defName))
                 {
@@ -130,28 +130,31 @@ namespace HoloFauna
         {
             foreach (PawnKindDef currentKindDef in holoKindDefsToGenerate)
             {
-                PawnKindDef holoKindDef = BaseHoloAnimalKind();
-                holoKindDef.defName = "HoloFauna_Holo" + currentKindDef.defName;
-                holoKindDef.label = "holo " + currentKindDef.label;
-                holoKindDef.race = holoThingDefsGenerated.Find(thingDef => thingDef.defName == "HoloFauna_Holo" + currentKindDef.race.defName);
-                //holoKindDef.race = holoThingDefsGenerated.ElementAt(holoKindDefsToGenerate.IndexOf(currentKindDef));
-                int latestLifeStageIndex = currentKindDef.lifeStages.Count - 1;
-                PawnKindLifeStage latestLifeStage = currentKindDef.lifeStages.ElementAt(latestLifeStageIndex);
-                holoKindDef.lifeStages = new List<PawnKindLifeStage>
+                if (!HoloFaunaMod.modSettings.disabledHoloAnimals.Contains(currentKindDef.defName))
                 {
-                    new PawnKindLifeStage
+                    PawnKindDef holoKindDef = BaseHoloAnimalKind();
+                    holoKindDef.defName = "HoloFauna_Holo" + currentKindDef.defName;
+                    holoKindDef.label = "holo " + currentKindDef.label;
+                    holoKindDef.race = holoThingDefsGenerated.Find(thingDef => thingDef.defName == "HoloFauna_Holo" + currentKindDef.race.defName);
+                    //holoKindDef.race = holoThingDefsGenerated.ElementAt(holoKindDefsToGenerate.IndexOf(currentKindDef));
+                    int latestLifeStageIndex = currentKindDef.lifeStages.Count - 1;
+                    PawnKindLifeStage latestLifeStage = currentKindDef.lifeStages.ElementAt(latestLifeStageIndex);
+                    holoKindDef.lifeStages = new List<PawnKindLifeStage>
                     {
-                        bodyGraphicData = new GraphicData
+                        new PawnKindLifeStage
                         {
-                            texPath = latestLifeStage.bodyGraphicData.texPath,
-                            drawSize = latestLifeStage.bodyGraphicData.drawSize,
-                            color = new UnityEngine.Color(0.424f, 0.855f, 0.957f), //(108, 218, 244) by default
-                            shaderType = ShaderTypeDefOf.EdgeDetect,
-                            shadowData = latestLifeStage.bodyGraphicData.shadowData
+                            bodyGraphicData = new GraphicData
+                            {
+                                texPath = latestLifeStage.bodyGraphicData.texPath,
+                                drawSize = latestLifeStage.bodyGraphicData.drawSize,
+                                color = new UnityEngine.Color(0.424f, 0.855f, 0.957f), //(108, 218, 244) by default
+                                shaderType = ShaderTypeDefOf.EdgeDetect,
+                                shadowData = latestLifeStage.bodyGraphicData.shadowData
+                            }
                         }
-                    }
-                };
-                yield return holoKindDef;
+                    };
+                    yield return holoKindDef;
+                }
             }
         }
 
@@ -396,7 +399,27 @@ namespace HoloFauna
         /// </summary>
         public static void LogStatistics()
         {
-            Log.Message("[HoloFauna] " + holoKindDefsGenerated.Count + " holo PawnKindDefs generated. " + existingHoloDefs.Count + " custom holo PawnKindDefs found.");
+            string holoFaunaTag = "[HoloFauna]";
+            string whitespace = " ";
+            string existingHolosMessage = holoFaunaTag + whitespace + existingHoloDefs.Count + whitespace + "custom holographic PawnKindDefs found.";
+            if (HoloFaunaMod.modSettings.modSettingsAppliesToCustomHolos)
+            {
+                existingHolosMessage += whitespace + "Mod settings applied to all custom holographic PawnKindDefs.";
+            }
+            Log.Message(existingHolosMessage);
+            string holosGeneratedMessage = holoFaunaTag + whitespace + holoKindDefsGenerated.Count + whitespace + "holographic PawnKindDefs generated (excluding disabled).";
+            Log.Message(holosGeneratedMessage);
+            string holosDisabledMessage = holoFaunaTag + whitespace;
+            if (HoloFaunaMod.modSettings.disabledHoloAnimals.Count > 0)
+            {
+                holosDisabledMessage += HoloFaunaMod.modSettings.disabledHoloAnimals.Count;
+            }
+            else
+            {
+                holosDisabledMessage += "No";
+            }
+            holosDisabledMessage += whitespace + "auto-generated holographic PawnKindDefs disabled.";
+            Log.Message(holosDisabledMessage);
         }
 
         public static List<string> existingHoloDefs = new List<string>();

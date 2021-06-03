@@ -15,6 +15,8 @@ namespace HoloFauna
 
         public bool modSettingsAppliesToCustomHolos = false;
 
+        public List<string> disabledHoloAnimals = new List<string>();
+
         /// <summary>
         /// saves settings
         /// </summary>
@@ -24,6 +26,7 @@ namespace HoloFauna
             Scribe_Values.Look(ref holoFaunaColourGreen, "holoFaunaColourGreen", 0.855f, false);
             Scribe_Values.Look(ref holoFaunaColourBlue, "holoFaunaColourBlue", 0.957f, false);
             Scribe_Values.Look(ref modSettingsAppliesToCustomHolos, "modSettingsAppliesToCustomHolos", false, false);
+            Scribe_Collections.Look<string>(ref disabledHoloAnimals, "disabledHoloAnimals", LookMode.Value, Array.Empty<object>());
             base.ExposeData();
         }
     }
