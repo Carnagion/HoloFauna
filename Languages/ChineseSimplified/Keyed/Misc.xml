@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Holo animal description generation -->
+	<HoloAnimalDescription>一个真人大小的{0}全息动物复制品，由一个微小的悬浮核心产生。与它的活体不同的是，大多数物理物体只能穿过它，它是太阳能供电的，不需要任何食物和休息。核心中的基本AI允许它像动物一样移动和行动，使它成为上流社会的宠物和战场上的有效干扰物。\n\n由于它的核心体积小，组件精致，一旦受到电磁脉冲的攻击，它会立即停止工作。</HoloAnimalDescription>
+
+</LanguageData>
