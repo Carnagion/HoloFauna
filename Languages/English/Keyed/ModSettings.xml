@@ -14,4 +14,7 @@
 	<ModSettingsApplyToCustomSettingLabel>Mod settings apply to custom holographic animals</ModSettingsApplyToCustomSettingLabel>
 	<ModSettingsApplyToCustomSettingTooltip>Toggle whether mod settings such as colour are applied to holographic animals that are not automatically generated. Default = false.</ModSettingsApplyToCustomSettingTooltip>
 
+	<EnabledHoloAnimalsSettingLabel>Enabled holographic animals</EnabledHoloAnimalsSettingLabel>
+	<EnabledHoloAnimalsSettingTooltip>Holographic animals that are disabled will not appear in the game. This only applies to auto-generated holographic animals. Default = all enabled.</EnabledHoloAnimalsSettingTooltip>
+
 </LanguageData>
