@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Mod display name -->
+	<HoloFaunaModName>全息动物</HoloFaunaModName>
+
+	<!-- Mod settings -->
+	<RestartRequiredLabel>&lt;颜色=#6CDAF4&gt;&lt;b&gt;注意:&lt;/b&gt; 设置生效需要重启&lt;/颜色&gt;</RestartRequiredLabel>
+	
+	<HoloAnimalColourSettingLabel>全息动物颜色</HoloAnimalColourSettingLabel>
+	<HoloAnimalColourSettingTooltip>所有全息动物的颜色。 RGB格式，取值范围为(0, 0, 0) ~ (255, 255, 255)。默认值 = (108, 218, 244).</HoloAnimalColourSettingTooltip>
+	<CurrentColourLabel>当前颜色: </CurrentColourLabel>
+
+	<ModSettingsApplyToCustomSettingLabel>Mod设置应用于自定义全息动物</ModSettingsApplyToCustomSettingLabel>
+	<ModSettingsApplyToCustomSettingTooltip>切换是否将颜色等mod设置应用于非自动生成的全息动物。默认值 = 否.</ModSettingsApplyToCustomSettingTooltip>
+
+	<EnabledHoloAnimalsSettingLabel>启用全息动物</EnabledHoloAnimalsSettingLabel>
+	<EnabledHoloAnimalsSettingTooltip>全息动物禁用将不会出现在游戏中。这只适用于自动生成的全息动物。默认 = 全部启用。</EnabledHoloAnimalsSettingTooltip>
+
+</LanguageData>
