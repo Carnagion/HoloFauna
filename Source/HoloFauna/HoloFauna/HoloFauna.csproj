@@ -34,6 +34,9 @@
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\Harmony\net472\0Harmony.dll</HintPath>
     </Reference>
+    <Reference Include="AchievementsExpanded">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\294100\2288125657\v1.2\Assemblies\AchievementsExpanded.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
@@ -56,33 +59,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BodyDefOf.cs" />
-    <Compile Include="HediffDefOf.cs" />
-    <Compile Include="Patches_GiddyUpCore_Utilities_IsMountableUtility.cs" />
-    <Compile Include="Patches_Pawn_MeleeVerbs.cs" />
-    <Compile Include="RecipeDefOf.cs" />
-    <Compile Include="DeathActionWorker_SmallEmpExplosion.cs" />
-    <Compile Include="DeathActionWorker_BigEmpExplosion.cs" />
-    <Compile Include="SoundDefOf.cs" />
+    <Compile Include="Achievements\Trackers\HoloPawnTracker.cs" />
+    <Compile Include="DefOf\BodyDefOf.cs" />
+    <Compile Include="Achievements\Trackers\KindDefNameTracker.cs" />
+    <Compile Include="DefOf\HediffDefOf.cs" />
+    <Compile Include="HarmonyPatches\Patches_GiddyUpCore_Utilities_IsMountableUtility.cs" />
+    <Compile Include="HarmonyPatches\Patches_Pawn_MeleeVerbs.cs" />
+    <Compile Include="DefOf\RecipeDefOf.cs" />
+    <Compile Include="Misc\DeathActionWorker_SmallEmpExplosion.cs" />
+    <Compile Include="Misc\DeathActionWorker_BigEmpExplosion.cs" />
+    <Compile Include="DefOf\SoundDefOf.cs" />
     <Compile Include="HoloFaunaModSettings.cs" />
-    <Compile Include="ThingDefOf.cs" />
-    <Compile Include="Patches_ThingDefGenerator_Meat.cs" />
+    <Compile Include="DefOf\ThingDefOf.cs" />
+    <Compile Include="HarmonyPatches\Patches_ThingDefGenerator_Meat.cs" />
     <Compile Include="HoloFaunaMod.cs" />
-    <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="LifeStageDefOf.cs" />
-    <Compile Include="ThingDefGenerator_Holo.cs" />
-    <Compile Include="Need_Energy.cs" />
-    <Compile Include="CompSolarPowered.cs" />
-    <Compile Include="CompProperties_SolarPowered.cs" />
-    <Compile Include="CompAlwaysTrained.cs" />
-    <Compile Include="CompProperties_AlwaysTrained.cs" />
-    <Compile Include="CompUseEffect_SpawnCreature.cs" />
-    <Compile Include="CompProperties_UseEffectSpawnCreature.cs" />
-    <Compile Include="CompProperties_CannotExist.cs" />
-    <Compile Include="Patches_ThingDefGenerator_Corpses.cs" />
-    <Compile Include="CompCannotExist.cs" />
-    <Compile Include="CompInvulnerable.cs" />
-    <Compile Include="CompProperties_Invulnerable.cs" />
+    <Compile Include="HarmonyPatches\HarmonyPatches.cs" />
+    <Compile Include="DefOf\LifeStageDefOf.cs" />
+    <Compile Include="HarmonyPatches\ThingDefGenerator_Holo.cs" />
+    <Compile Include="Needs\Need_Energy.cs" />
+    <Compile Include="Comps\CompSolarPowered.cs" />
+    <Compile Include="Comps\CompProperties_SolarPowered.cs" />
+    <Compile Include="Comps\CompAlwaysTrained.cs" />
+    <Compile Include="Comps\CompProperties_AlwaysTrained.cs" />
+    <Compile Include="Comps\CompUseEffect_SpawnCreature.cs" />
+    <Compile Include="Comps\CompProperties_UseEffectSpawnCreature.cs" />
+    <Compile Include="Comps\CompProperties_CannotExist.cs" />
+    <Compile Include="HarmonyPatches\Patches_ThingDefGenerator_Corpses.cs" />
+    <Compile Include="Comps\CompCannotExist.cs" />
+    <Compile Include="Comps\CompInvulnerable.cs" />
+    <Compile Include="Comps\CompProperties_Invulnerable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
