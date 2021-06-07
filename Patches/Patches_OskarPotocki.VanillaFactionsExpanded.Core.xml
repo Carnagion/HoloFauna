@@ -7,6 +7,7 @@
 		</mods>
 
 		<match Class="PatchOperationSequence">
+			<success>Always</success>
 			<operations>
 
 				<!-- Gives floating comp to holo boomalope and holo boomrat -->
@@ -15,19 +16,6 @@
 					<value>
 						<li Class="AnimalBehaviours.CompProperties_Floating"/>
 					</value>
-				</li>
-
-				<!-- Gives floating comp to holo boombat if it exists -->
-				<li Class="PatchOperationConditional">
-					<success>Always</success>
-					<xpath>/Defs/ThingDef[defName="HoloFauna_HoloAEXP_Boombat"]</xpath>
-
-					<match Class="PatchOperationAdd">
-						<xpath>/Defs/ThingDef[defName="HoloFauna_HoloAEXP_Boombat"]/comps</xpath>
-						<value>
-							<li Class="AnimalBehaviours.CompProperties_Floating"/>
-						</value>
-					</match>
 				</li>
 
 			</operations>

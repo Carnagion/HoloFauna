@@ -7,6 +7,7 @@
 		</mods>
 
 		<match Class="PatchOperationSequence">
+			<success>Always</success>
 			<operations>
 
 				<!-- Adds holo boombat -->
@@ -73,12 +74,26 @@
 					</value>
 				</li>
 
-				<!-- Adds holo boombat to list of spawnable creatures for holographic life core -->
+				<!-- Adds holo boombat to spawnable creatures for holographic life core -->
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs/ThingDef[defName="HoloFauna_HolographicLifeCore"]/comps/li[@Class="HoloFauna.CompProperties_UseEffectSpawnCreature"]/creatures</xpath>
 					<value>
 						<li>HoloFauna_HoloAEXP_Boombat</li>
 					</value>
+				</li>
+
+				<!-- Gives floating comp to holo boombat if VEF is active -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Vanilla Expanded Framework</li>
+					</mods>
+
+					<match Class="PatchOperationAdd">
+						<xpath>/Defs/ThingDef[defName="HoloFauna_HoloAEXP_Boombat"]/comps</xpath>
+						<value>
+							<li Class="AnimalBehaviours.CompProperties_Floating"/>
+						</value>
+					</match>
 				</li>
 
 			</operations>
