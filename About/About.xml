@@ -48,6 +48,9 @@ Additionally, some features are activated if these mods are loaded:
 	- Vanilla Furniture Expanded - Art
 	The holographic life core will require the "Holograms" research from VFE - Art rather than the default one added by this mod, which will be removed. This is to allow all hologram-related things to be accessible from a single research project.
 
+	- Vanilla Achievements Expanded
+	4 new custom achievements related to holographic animals will be added.
+
 New damage types added by other mods are also supported, and will not harm holo animals by default.
 
 	&lt;color=#6CDAF4&gt;FAQ&lt;/color&gt;
@@ -56,13 +59,13 @@ New damage types added by other mods are also supported, and will not harm holo 
 A.  Most holographic animals have the same stats, except for movement speed, body size, market value, and the amount of energy they consume/replenish per tick.
 
 2. A mod adds an animal but a holographic counterpart for it was not generated. Why?
-A. This means that animal isn't being counted as an animal by RimWorld. It is possible to manually add holographic animals. See documentation.
+A. This means that animal isn't being counted as an animal by RimWorld. It is possible to manually add holographic animals through xml. See documentation.
 
 3. I want to add a new holographic animal/change the stats of an already existing holographic animal. How do I do this?
 A. See documentation.
 
 4. I want to remove a certain holographic animal. How do I do this?
-A. See documentation.
+A. If the holo animal is auto-generated, it can be disabled in the mod settings. If it is a custom holographic animal added through xml or otherwise, a patch will need to be made (either through xml or C#). See documentation for more details.
 
 5. I want to make holographic animals die to a certain damage type. How do I do this?
 A. See documentation.
