@@ -82,6 +82,7 @@ namespace HoloFauna
                 holoThingDef.race.thinkTreeConstant = currentThingDef.race.thinkTreeConstant;
                 holoThingDef.race.baseBodySize = currentThingDef.race.baseBodySize;
                 holoThingDef.race.baseHealthScale = currentThingDef.race.baseHealthScale;
+                holoThingDef.race.petness = 1.0f;
                 holoThingDef.statBases.Add(
                     new StatModifier
                     {
@@ -128,42 +129,36 @@ namespace HoloFauna
         /// </summary>
         public static IEnumerable<PawnKindDef> ImpliedHoloAnimalKindDefs()
         {
-            foreach (PawnKindDef currentKindDef in holoKindDefsToGenerate)
+            foreach (PawnKindDef currentKindDef in holoKindDefsToGenerate.Where(kindDef => HoloFaunaMod.modSettings.disabledHoloAnimals.NullOrEmpty() || !HoloFaunaMod.modSettings.disabledHoloAnimals.Contains(kindDef.defName)))
             {
-                if (HoloFaunaMod.modSettings.disabledHoloAnimals.NullOrEmpty() || !HoloFaunaMod.modSettings.disabledHoloAnimals.Contains(currentKindDef.defName))
+                if (holoThingDefsGenerated.Any(holoThingDef => holoThingDef.defName == "HoloFauna_Holo" + currentKindDef.race.defName))
                 {
                     PawnKindDef holoKindDef = BaseHoloAnimalKind();
                     holoKindDef.defName = "HoloFauna_Holo" + currentKindDef.defName;
                     holoKindDef.label = "holo " + currentKindDef.label;
                     holoKindDef.race = holoThingDefsGenerated.Find(thingDef => thingDef.defName == "HoloFauna_Holo" + currentKindDef.race.defName);
-                    if (holoKindDef.race == null)
-                    {
-                        holoKindDef.race = DefDatabase<ThingDef>.AllDefsListForReading.Find(thingDef => thingDef.defName == "HoloFauna_Holo" + currentKindDef.race.defName);
-                    }
                     int latestLifeStageIndex = currentKindDef.lifeStages.Count - 1;
                     PawnKindLifeStage latestLifeStage = currentKindDef.lifeStages.ElementAt(latestLifeStageIndex);
                     holoKindDef.lifeStages = new List<PawnKindLifeStage>
-                    {
-                        new PawnKindLifeStage
                         {
-                            bodyGraphicData = new GraphicData
+                            new PawnKindLifeStage
                             {
-                                texPath = latestLifeStage.bodyGraphicData.texPath,
-                                drawSize = latestLifeStage.bodyGraphicData.drawSize,
-                                color = new UnityEngine.Color(0.424f, 0.855f, 0.957f), //(108, 218, 244) by default
-                                shaderType = ShaderTypeDefOf.EdgeDetect,
-                                shadowData = latestLifeStage.bodyGraphicData.shadowData
+                                bodyGraphicData = new GraphicData
+                                {
+                                    texPath = latestLifeStage.bodyGraphicData.texPath,
+                                    drawSize = latestLifeStage.bodyGraphicData.drawSize,
+                                    color = new UnityEngine.Color(0.424f, 0.855f, 0.957f), //(108, 218, 244) by default
+                                    shaderType = ShaderTypeDefOf.EdgeDetect,
+                                    shadowData = latestLifeStage.bodyGraphicData.shadowData
+                                }
                             }
-                        }
-                    };
-                    if (holoKindDef.race != null)
-                    {
-                        yield return holoKindDef;
-                    }
-                    else
-                    {
-                        Log.Error("[HoloFauna] Holographic ThingDef was not generated or found for " + currentKindDef.defName + ". Skipping.");
-                    }
+                        };
+                    yield return holoKindDef;
+
+                }
+                else
+                {
+                    Log.Error("[HoloFauna] Holographic ThingDef was not generated for " + currentKindDef.defName + ". Skipping.");
                 }
             }
         }
@@ -188,7 +183,7 @@ namespace HoloFauna
                     new StatModifier
                     {
                         stat = StatDefOf.Mass,
-                        value = 2f
+                        value = 0.5f
                     },
                     new StatModifier
                     {
