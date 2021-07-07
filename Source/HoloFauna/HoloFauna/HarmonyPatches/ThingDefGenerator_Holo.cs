@@ -234,7 +234,12 @@ namespace HoloFauna
                     {
                         stat = StatDefOf.ArmorRating_Heat,
                         value = 0f
-                    }
+                    },
+                    new StatModifier
+                    {
+                        stat = StatDefOf.FilthRate,
+                        value = 0f
+                    },
                 },
                 race = new RaceProperties
                 {
@@ -303,18 +308,19 @@ namespace HoloFauna
             baseHoloAnimal.race.body = BodyDefOf.HoloFauna_HoloAnimal;
             baseHoloAnimal.race.manhunterOnDamageChance = 0f;
             baseHoloAnimal.race.manhunterOnTameFailChance = 0f;
-            baseHoloAnimal.race.nameOnNuzzleChance = 1f;
-            baseHoloAnimal.race.trainability = TrainabilityDefOf.Simple;
+            baseHoloAnimal.race.trainability = TrainabilityDefOf.Intermediate;
             baseHoloAnimal.race.wildness = 0f;
             baseHoloAnimal.race.nuzzleMtbHours = 8f;
             baseHoloAnimal.race.herdMigrationAllowed = false;
             baseHoloAnimal.race.herdAnimal = false;
+            baseHoloAnimal.race.predator = false;
             baseHoloAnimal.comps.Add(new CompProperties_AlwaysTrained
             {
                 trainableDefs = new List<TrainableDef>
                 {
                     TrainableDefOf.Tameness,
-                    TrainableDefOf.Obedience
+                    TrainableDefOf.Obedience,
+                    TrainableDefOf.Release,
                 }
             });
             baseHoloAnimal.tradeTags = new List<string>

@@ -12,7 +12,7 @@
 		<hasTooltip>true</hasTooltip>
 		<soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
 		<statBases>
-			<Mass>2.00</Mass>
+			<Mass>0.5</Mass>
 			<Flammability>0.00</Flammability>
 			<MeatAmount>0</MeatAmount>
 			<LeatherAmount>0</LeatherAmount>
@@ -23,6 +23,7 @@
 			<ArmorRating_Sharp>0.00</ArmorRating_Sharp>
 			<ArmorRating_Blunt>0.00</ArmorRating_Blunt>
 			<ArmorRating_Heat>0.00</ArmorRating_Heat>
+			<FilthRate>0.00</FilthRate>
 		</statBases>
 		<race>
 			<needsRest>false</needsRest>
@@ -76,18 +77,21 @@
 			<thinkTreeConstant>AnimalConstant</thinkTreeConstant>
 			<manhunterOnDamageChance>0.00</manhunterOnDamageChance>
 			<manhunterOnTameFailChance>0.00</manhunterOnTameFailChance>
-			<nameOnNuzzleChance>1.00</nameOnNuzzleChance>
-			<trainability>Simple</trainability>
+			<trainability>Intermediate</trainability>
 			<wildness>0.00</wildness>
 			<nuzzleMtbHours>8</nuzzleMtbHours>
 			<herdMigrationAllowed>false</herdMigrationAllowed>
 			<herdAnimal>false</herdAnimal>
+			<predator>false</predator>
+			<nameGenerator>NamerAnimalGenericMale</nameGenerator>
+			<nameGeneratorFemale>NamerAnimalGenericFemale</nameGeneratorFemale>
 		</race>
 		<comps>
 			<li Class="HoloFauna.CompProperties_AlwaysTrained">
 				<trainableDefs>
 					<li>Tameness</li>
 					<li>Obedience</li>
+					<li>Release</li>
 				</trainableDefs>
 			</li>
 		</comps>
@@ -116,7 +120,7 @@
 		<comps>
 			<li Class="HoloFauna.CompProperties_SolarPowered">
 				<hoursForFullRecharge>9.3</hoursForFullRecharge>
-				<hoursSurvivableWithoutLight>111</hoursSurvivableWithoutLight>
+				<hoursSurvivableWithoutLight>122.7</hoursSurvivableWithoutLight>
 				<minimumLightLevel>0.5</minimumLightLevel>
 			</li>
 		</comps>
@@ -174,7 +178,7 @@
 		<comps>
 			<li Class="HoloFauna.CompProperties_SolarPowered">
 				<hoursForFullRecharge>1.24</hoursForFullRecharge>
-				<hoursSurvivableWithoutLight>180</hoursSurvivableWithoutLight>
+				<hoursSurvivableWithoutLight>192</hoursSurvivableWithoutLight>
 				<minimumLightLevel>0.5</minimumLightLevel>
 			</li>
 		</comps>

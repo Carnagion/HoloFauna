@@ -5,6 +5,7 @@
 	<packageId>Carnagion.HoloFauna</packageId>
 	<supportedVersions>
 		<li>1.2</li>
+		<li>1.3</li>
 	</supportedVersions>
 	<modDependencies>
 		<li>
@@ -31,11 +32,11 @@
 
 A new research project enables the crafting of a holographic life core at fabrication benches. These are single-use artifacts that transform into a random holographic animal when activated. The newly spawned holographic animal will automatically be assigned to the activator's faction, and will be trained in Tameness and Obedience.
 
-Holographic animals are better than regular animals in almost every way since they do not need to eat or sleep, and aren't affected by processes such as aging or diseases. They only need sufficient light, as they produce energy through in-built solar generators. Combined with their high nuzzling frequency, this makes them the ideal pets, although they can't be trained to attack, haul, or rescue.
+Holographic animals are better than regular animals in almost every way since they do not need to eat or sleep, and aren't affected by processes such as aging or diseases. They only need sufficient light, as they produce energy through in-built solar generators. Combined with their high nuzzling frequency, this makes them the ideal pets, although they can't be trained to haul or rescue.
 
 But not only are they great pets, they're also useful on the battlefield. Due to the lack of a tangible, physical body, they can't be damaged by any sort of weapon, projectile, or psycast. Of course, this also means they can't do any damage to other things, but enemies will still continue to attack them if they are nearby, because enemies in RimWorld are dumb. While they are nearly invincible, holographic animals will instantly cease to function (aka "die") if hit by EMP.
 
-The colour of holographic animals can be changed in the mod settings (there are some exceptions; read the FAQ section).
+The colour of holographic animals can be changed in the mod settings. Holo animals can also be disabled individually in the mod settings. There are exceptions to both of these; read the FAQ section.
 
 	&lt;color=#6CDAF4&gt;MOD SUPPORT&lt;/color&gt;
 
