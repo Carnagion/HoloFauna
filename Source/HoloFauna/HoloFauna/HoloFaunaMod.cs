@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using RimWorld;
 
 namespace HoloFauna
 {
@@ -49,7 +50,7 @@ namespace HoloFauna
                     allAnimalKindDefs[i] = !modSettings.disabledHoloAnimals.Contains(ThingDefGenerator_Holo.holoKindDefsToGenerate[i].defName);
                 }
             }
-            settingsWindowBottom.BeginScrollView(bottomRect, ref scrollPosition, ref bottomViewRect);
+            /*settingsWindowBottom.BeginScrollView(bottomRect, ref scrollPosition, ref bottomViewRect);
             settingsWindowBottom.ColumnWidth = (bottomViewRect.width - 40f) / 3f;
             for (int i = 0; i < ThingDefGenerator_Holo.holoKindDefsToGenerate.Count; i++)
             {
@@ -68,7 +69,31 @@ namespace HoloFauna
                 }
                 Widgets.CheckboxLabeled(checkboxRect, ("holo " + ThingDefGenerator_Holo.holoKindDefsToGenerate[i].label).CapitalizeFirst(), ref allAnimalKindDefs[i], false, null, null, false);
             }
-            settingsWindowBottom.EndScrollView(ref bottomViewRect);
+            settingsWindowBottom.EndScrollView(ref bottomViewRect);*/
+            Widgets.BeginScrollView(bottomRect, ref scrollPosition, bottomViewRect, true);
+            bottomRect.height = 100000f;
+            bottomRect.width -= 20f;
+            settingsWindowBottom.Begin(bottomRect.AtZero());
+            settingsWindowBottom.ColumnWidth = (bottomViewRect.width - 40f) / 3f;
+            for (int i = 0; i < ThingDefGenerator_Holo.holoKindDefsToGenerate.Count; i++)
+            {
+                if (i == (ThingDefGenerator_Holo.holoKindDefsToGenerate.Count / 3) + 1)
+                {
+                    settingsWindowBottom.NewColumn();
+                }
+                if (i == ((ThingDefGenerator_Holo.holoKindDefsToGenerate.Count / 3) * 2) + 1)
+                {
+                    settingsWindowBottom.NewColumn();
+                }
+                Rect checkboxRect = settingsWindowBottom.GetRect(Text.LineHeight);
+                if (Mouse.IsOver(checkboxRect))
+                {
+                    Widgets.DrawHighlight(checkboxRect);
+                }
+                Widgets.CheckboxLabeled(checkboxRect, ("holo " + ThingDefGenerator_Holo.holoKindDefsToGenerate[i].label).CapitalizeFirst(), ref allAnimalKindDefs[i], false, null, null, false);
+            }
+            Widgets.EndScrollView();
+            settingsWindowBottom.End();
             base.DoSettingsWindowContents(inRect);
         }
 
